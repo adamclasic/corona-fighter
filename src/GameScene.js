@@ -1,21 +1,40 @@
-import logoImg from './assets/logo.png'
-import {Scene} from 'phaser'
+import imgcity from './assets/city.png'
+import imgvirus from './assets/bom.png'
+import imgdude from './assets/sprite.png'
+import imgstar from './assets/star.png'
+import imgplatform from './assets/platform.png'
+import imgwapon from './assets/gun.png'
+import Phaser, {Scene} from 'phaser'
+let player;
+let stars;
+let platforms;
+let cursors;
 class GameScene extends Scene {
   preload() {
-    this.load.image("logo", logoImg);
+    this.load.image('sky', imgcity);
+    this.load.image('ground', imgplatform);
+    this.load.image('star', imgstar);
+    this.load.image('bomb', imgvirus);
+    this.load.spritesheet('dude', imgdude, { frameWidth: 32, frameHeight: 48 });
   }
 
-  create() {
-    const logo = this.add.image(400, 150, "logo");
 
-    this.tweens.add({
-      targets: logo,
-      y: 450,
-      duration: 2000,
-      ease: "Power2",
-      yoyo: true,
-      loop: -1
-    });
+  create() {
+    this.add.image(400, 300, 'sky');
+
+    platforms = this.physics.add.staticGroup();
+    createPlatform();
+    
+    player = this.physics.add.sprite(100, 450, 'dude');
+    player.setBounce(0.2);
+    player.setCollideWorldBounds(true);
+    
+    function createPlatform() {
+      platforms.create(400, 568, 'ground').setScale(2).refreshBody();
+      platforms.create(600, 400, 'ground');
+      platforms.create(50, 250, 'ground');
+      platforms.create(750, 220, 'ground');
+    };
   }
 }
 export default GameScene;
