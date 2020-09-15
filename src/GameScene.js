@@ -53,6 +53,20 @@ class GameScene extends Scene {
 
   cursors = this.input.keyboard.createCursorKeys();
 
+  stars = this.physics.add.group({
+    key: 'star',
+    repeat: 3,
+    setXY: { x: 12, y: 0, stepX: 70 }
+  });
+
+  stars.children.iterate(function (child) {
+    child.setBounceY(Phaser.Math.FloatBetween(0.1, 0.3));
+  });
+
+  this.physics.add.collider(player, platforms);
+  this.physics.add.collider(stars, platforms);
+
+  this.physics.add.overlap(player, stars, collectStar, null, this);
 
     function createPlatform() {
       platforms.create(400, 568, 'ground').setScale(2).refreshBody();
@@ -86,10 +100,20 @@ class GameScene extends Scene {
 
       if (cursors.up.isDown && player.body.touching.down)
       {
-          player.setVelocityY(-330);
+          player.setVelocityY(-550);
       }
+
+
+
+
   }
+
+
 }
 
+function collectStar (player, star)
+{
+    star.disableBody(true, true);
+}
 
 export default GameScene;
