@@ -9,6 +9,8 @@ let player;
 let stars;
 let platforms;
 let cursors;
+let score = 0;
+let scoreText;
 class GameScene extends Scene {
   preload() {
     this.load.image('sky', imgcity);
@@ -21,7 +23,7 @@ class GameScene extends Scene {
 
   create() {
     this.add.image(400, 300, 'sky');
-
+    scoreText = this.add.text(20, 20, 'Score: 0')
     platforms = this.physics.add.staticGroup();
     createPlatform();
     
@@ -103,17 +105,15 @@ class GameScene extends Scene {
           player.setVelocityY(-550);
       }
 
-
-
-
   }
-
 
 }
 
 function collectStar (player, star)
 {
     star.disableBody(true, true);
+    score += 1;
+    scoreText.setText('Score: ' + score);
 }
 
 export default GameScene;
