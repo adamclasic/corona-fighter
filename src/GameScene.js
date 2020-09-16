@@ -70,11 +70,11 @@ class GameScene extends Scene {
 
   cursors = this.input.keyboard.createCursorKeys();
 
-    stars = this.physics.add.group({
-      key: 'star',
-      repeat: 20,
-      setXY: { x: 82, y: player.x +1000, stepX: 70}
-    });
+  stars = this.physics.add.group({
+    key: 'star',
+    repeat: 20,
+    setXY: { x: 82, y: player.y - 800, stepX: 70}
+  });
 
   stars.children.iterate(function (child) {
     child.setBounceY(Phaser.Math.FloatBetween(0.1, 0.3));
@@ -95,7 +95,7 @@ class GameScene extends Scene {
   this.physics.add.collider(viruses, platforms);
 
   this.physics.add.overlap(player, stars, collectStar, null, this);
-  this.physics.add.collider(player, viruses, hitVirus, null, this);
+  // this.physics.add.collider(player, viruses, hitVirus, null, this);
 
 
   this.myCam = this.cameras.main;
@@ -326,6 +326,7 @@ class GameScene extends Scene {
         // player.angle = 0
       }
 
+      console.log(score);
 
   }
 
@@ -345,7 +346,18 @@ function collectStar (player, star)
     // virus.setCollideWorldBounds(true);
     virus.setVelocity(Phaser.Math.Between(-200, 200), 20);
     virus.allowGravity = false;
+
+    if ((score %10 ===0 && score<50) || (score %50 ===0 && score<100))
+    {
+        stars = this.physics.add.group({
+          key: 'star',
+          repeat: 20,
+          setXY: { x: 82, y: player.y - 900, stepX: 70}
+        });
+        this.physics.add.collider(stars, platforms);
+        this.physics.add.overlap(player, stars, collectStar, null, this);
 }
+    }
 
     if (stars.countActive(true) === 0)
     {
