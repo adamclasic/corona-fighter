@@ -10,8 +10,8 @@ const config = {
         debug: false
     }
   },
-  width: 800,
-  height: 600,
+  width: 1300,
+  height: 730,
   scene: GameScene
 };
 export default config
