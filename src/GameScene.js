@@ -86,7 +86,7 @@ class GameScene extends Scene {
   sprays = this.physics.add.group();
   spray = this.physics.add.sprite(player.x, player.y, 'smoke')
   spray.setVisible(false);
-  spray.angle += 8;
+  // spray.angle += 8;
 
 
   this.physics.add.collider(spray, viruses, killVirus, null, this);
@@ -107,8 +107,10 @@ class GameScene extends Scene {
   {
       if (cursors.left.isDown)
       {
-        player.flipX = false;
-
+          player.flipX = false;
+          player.flipY = false;
+          spray.flipX = false;
+          spray.angle = 8
           player.setVelocityX(-180);
 
           player.anims.play('left', true);
@@ -117,6 +119,8 @@ class GameScene extends Scene {
       else if (cursors.right.isDown)
       {
         player.flipX = false;
+          spray.flipX = true;
+          spray.angle = -8
           player.setVelocityX(180);
 
           player.anims.play('right', true);
@@ -131,10 +135,14 @@ class GameScene extends Scene {
           // player.flipX = true;
 
           if (playerAngleRight) {
-            player.flipX = true;
+          spray.flipX = true;
+          spray.angle = -8
+          player.flipX = true;
 
           } else {
-            player.flipX = false;
+          spray.flipX = false;
+          spray.angle = 8
+          player.flipX = false;
           }
 
       }
