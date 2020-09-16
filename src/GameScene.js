@@ -15,6 +15,7 @@ let score = 0;
 let scoreText;
 let spray;
 let sprays;
+let playerAngleRight;
 class GameScene extends Scene {
   preload() {
     this.load.image('sky', imgcity);
@@ -106,16 +107,20 @@ class GameScene extends Scene {
   {
       if (cursors.left.isDown)
       {
+        player.flipX = false;
+
           player.setVelocityX(-180);
 
           player.anims.play('left', true);
+          playerAngleRight = false;
       }
       else if (cursors.right.isDown)
       {
+        player.flipX = false;
           player.setVelocityX(180);
 
           player.anims.play('right', true);
-
+          playerAngleRight = true;
 
       }
       else
@@ -123,15 +128,26 @@ class GameScene extends Scene {
           player.setVelocityX(0);
 
           player.anims.play('turn');
+          // player.flipX = true;
+
+          if (playerAngleRight) {
+            player.flipX = true;
+
+          } else {
+            player.flipX = false;
+          }
+
       }
 
       if (cursors.up.isDown && player.body.touching.down)
       {
           player.setVelocityY(-550);
+
       }
 
       if (cursors.down.isDown)
       {
+
         // spray.setCollideWorldBounds(true);
         spray.setVelocityY(0);
           // spray.enableBody(true, true);
@@ -149,6 +165,10 @@ class GameScene extends Scene {
 
       }
 
+      if (cursors.right.isUp)
+      {
+        // player.angle = 0
+      }
 
       // console.log(player.x)
   }
