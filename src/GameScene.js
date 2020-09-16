@@ -31,13 +31,13 @@ class GameScene extends Scene {
     scoreText = this.add.text(20, 20, 'Score: 0')
     platforms = this.physics.add.staticGroup();
     createPlatform();
-    
+
     player = this.physics.add.sprite(100, 450, 'dude');
     player.setBounce(0.2);
     player.setCollideWorldBounds(true);
 
-    spray = this.physics.add.sprite(170, 450, 'smoke')
-    spray.angle += 8;
+
+
     this.anims.create({
       key: 'left',
       frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 8 }),
@@ -79,10 +79,14 @@ class GameScene extends Scene {
 
   this.physics.add.collider(player, platforms);
   this.physics.add.collider(stars, platforms);
-  this.physics.add.collider(spray, platforms);
-
+  // this.physics.add.collider(spray, platforms);
+  
   viruses = this.physics.add.group();
   sprays = this.physics.add.group();
+  spray = this.physics.add.sprite(player.x, player.y, 'smoke')
+  spray.setVisible(false);
+  spray.angle += 8;
+
 
   this.physics.add.collider(spray, viruses, killVirus, null, this);
   this.physics.add.collider(viruses, platforms);
@@ -111,7 +115,8 @@ class GameScene extends Scene {
           player.setVelocityX(180);
 
           player.anims.play('right', true);
-          spray.anims.play('smokeAnim', true);
+
+
       }
       else
       {
@@ -123,9 +128,29 @@ class GameScene extends Scene {
       if (cursors.up.isDown && player.body.touching.down)
       {
           player.setVelocityY(-550);
+      }
+
+      if (cursors.down.isDown)
+      {
+        // spray.setCollideWorldBounds(true);
+        spray.setVelocityY(0);
+          // spray.enableBody(true, true);
+          spray.setVisible(true);
+
+          spray.anims.play('smokeAnim', true);
+          spray.setPosition(player.x-230, player.y-20)
+          spray.setVelocityY(0);
 
       }
 
+      if (cursors.down.isUp)
+      {
+        spray.setVisible(false);
+
+      }
+
+
+      // console.log(player.x)
   }
 
 }
@@ -157,7 +182,8 @@ function collectStar (player, star)
 
 function hitVirus (player, virus)
 {
-    this.physics.pause();
+  virus.disableBody(true, true);
+  this.physics.pause();
 
     player.setTint(0xff0000);
 
@@ -167,7 +193,7 @@ function hitVirus (player, virus)
 }
 
 function killVirus(player, virus ) {
-  virus.disableBody(true, true)
+  virus.disableBody(true, true);
   score += 10;
   scoreText.setText('Score: ' + score);
   
