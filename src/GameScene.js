@@ -1,23 +1,28 @@
 import imgcity from './assets/city.png'
-import imgvirus from './assets/bom.png'
+import imgvirus from './assets/virus.png'
 import imgdude from './assets/sprite.png'
 import imgstar from './assets/star.png'
+import imgsmoke from './assets/smoke.png'
 import imgplatform from './assets/platform.png'
 import imgwapon from './assets/gun.png'
 import Phaser, {Scene} from 'phaser'
 let player;
 let stars;
+let viruses;
 let platforms;
 let cursors;
 let score = 0;
 let scoreText;
+let spray;
+let sprays;
 class GameScene extends Scene {
   preload() {
     this.load.image('sky', imgcity);
     this.load.image('ground', imgplatform);
     this.load.image('star', imgstar);
-    this.load.image('bomb', imgvirus);
+    this.load.image('virus', imgvirus);
     this.load.spritesheet('dude', imgdude, { frameWidth: 114, frameHeight: 115 });
+    this.load.spritesheet('smoke', imgsmoke,  { frameWidth: 356, frameHeight: 154 });
   }
 
 
@@ -31,8 +36,8 @@ class GameScene extends Scene {
     player.setBounce(0.2);
     player.setCollideWorldBounds(true);
 
-
-    
+    spray = this.physics.add.sprite(170, 450, 'smoke')
+    spray.angle += 8;
     this.anims.create({
       key: 'left',
       frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 8 }),
@@ -53,6 +58,13 @@ class GameScene extends Scene {
       repeat: -1
   });
 
+  this.anims.create({
+    key: 'smokeAnim',
+    frames: this.anims.generateFrameNumbers('smoke', { start: 0, end: 21 }),
+    frameRate: 20,
+    repeat: -1
+});
+
   cursors = this.input.keyboard.createCursorKeys();
 
   stars = this.physics.add.group({
@@ -67,8 +79,16 @@ class GameScene extends Scene {
 
   this.physics.add.collider(player, platforms);
   this.physics.add.collider(stars, platforms);
+  this.physics.add.collider(spray, platforms);
+
+  viruses = this.physics.add.group();
+  sprays = this.physics.add.group();
+
+  this.physics.add.collider(spray, viruses, killVirus, null, this);
+  this.physics.add.collider(viruses, platforms);
 
   this.physics.add.overlap(player, stars, collectStar, null, this);
+  this.physics.add.collider(player, viruses, hitVirus, null, this);
 
     function createPlatform() {
       platforms.create(400, 568, 'ground').setScale(2).refreshBody();
@@ -77,7 +97,6 @@ class GameScene extends Scene {
       platforms.create(750, 220, 'ground');
     };
   }
-
   
   update ()
   {
@@ -92,6 +111,7 @@ class GameScene extends Scene {
           player.setVelocityX(180);
 
           player.anims.play('right', true);
+          spray.anims.play('smokeAnim', true);
       }
       else
       {
@@ -103,6 +123,7 @@ class GameScene extends Scene {
       if (cursors.up.isDown && player.body.touching.down)
       {
           player.setVelocityY(-550);
+
       }
 
   }
@@ -114,6 +135,59 @@ function collectStar (player, star)
     star.disableBody(true, true);
     score += 1;
     scoreText.setText('Score: ' + score);
+    if (stars.countActive(true) === 0)
+    {
+        //  A new batch of stars to collect
+        stars.children.iterate(function (child) {
+
+            child.enableBody(true, child.x, 0, true, true);
+
+        });
+
+        let x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
+
+        let virus = viruses.create(x, 16, 'virus');
+        virus.setBounce(1);
+        virus.setCollideWorldBounds(true);
+        virus.setVelocity(Phaser.Math.Between(-200, 200), 20);
+        virus.allowGravity = false;
+
+    }
 }
 
+function hitVirus (player, virus)
+{
+    this.physics.pause();
+
+    player.setTint(0xff0000);
+
+    player.anims.play('turn');
+
+    // gameOver = true;
+}
+
+function killVirus(player, virus ) {
+  virus.disableBody(true, true)
+  score += 10;
+  scoreText.setText('Score: ' + score);
+  
+  // if (viruses.countActive(true) === 0)
+  //   {
+  //       //  A new batch of viruses to collect
+  //       viruses.children.iterate(function (child) {
+
+  //           child.enableBody(true, child.x, 0, true, true);
+
+  //       });
+
+  //       let x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
+
+  //       let bomb = bombs.create(x, 16, 'virus');
+  //       bomb.setBounce(0.8);
+  //       bomb.setCollideWorldBounds(true);
+  //       bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
+  //       bomb.allowGravity = false;
+
+  //   }
+}
 export default GameScene;
