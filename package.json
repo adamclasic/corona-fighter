@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/photonstorm/phaser3-project-template#readme",
   "devDependencies": {
+    "@azerion/phaser-input": "^2.0.5",
     "@babel/core": "^7.7.2",
     "@babel/preset-env": "^7.7.1",
     "babel-loader": "^8.0.6",
@@ -28,7 +29,9 @@
     "eslint-plugin-import": "^2.20.2",
     "file-loader": "^4.2.0",
     "html-webpack-plugin": "^3.2.0",
+    "phaser3-rex-plugins": "^1.1.28",
     "raw-loader": "^3.1.0",
+    "regenerator-runtime": "^0.13.7",
     "stylelint": "^13.3.3",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-csstree-validator": "^1.8.0",
