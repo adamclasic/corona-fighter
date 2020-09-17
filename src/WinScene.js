@@ -2,11 +2,11 @@ import {Scene} from 'phaser'
 import imglogo from './assets/logo.png'
 import imgbtn from './assets/btn.png'
 
-class PreloadScene extends Scene {
+class WinScene extends Scene {
 
   
   constructor() {
-    super('preload')
+    super('winscene')
   }
 
 
@@ -17,18 +17,10 @@ class PreloadScene extends Scene {
 
   create() {
     this.cameras.main.backgroundColor = Phaser.Display.Color.HexStringToColor("#1d0038");
-    let logo = this.add.image(900, 400, 'logo');
-    this.tweens.add({
-      targets: logo,
-      y: 450,
-      duration: 2000,
-      ease: "Power1",
-      yoyo: true,
-      loop: -1
-    });
+
     this.add.image(300, 350, 'playbtn');
     this.input.on('pointerdown', () => this.scene.start('game'))
   }
 }
 
-export default PreloadScene
+export default WinScene

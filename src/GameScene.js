@@ -43,7 +43,8 @@ class GameScene extends Scene {
 
   create() {
     city = this.add.image(0, 0, 'sky').setOrigin(0);;
-    door = this.add.image(1000,200, 'door').setScale(0.3, 0.3);
+    // door = this.add.image(1000,200, 'door').setScale(0.3, 0.3);
+    door = this.physics.add.sprite(1000,4750, 'door').setScale(0.3, 0.3);
     scoreText = this.add.text(20, 20, 'Score: 0')
     platforms = this.physics.add.staticGroup();
     createPlatform();
@@ -108,7 +109,8 @@ class GameScene extends Scene {
 
   this.physics.add.overlap(player, stars, collectStar, null, this);
   this.physics.add.overlap(player, door, endGame, null, this);
-  // this.physics.add.collider(player, viruses, hitVirus, null, this);
+  this.physics.add.collider(door, platforms);
+  this.physics.add.collider(player, viruses, hitVirus, null, this);
 
 
   this.myCam = this.cameras.main;
@@ -395,6 +397,11 @@ if ((score %30 ===0 && score>99))
         });
 
     }
+
+    if (gameOver) {
+      console.log(this);
+      this.scene.start('winscene')
+    }
 }
 
 function hitVirus (player, virus)
@@ -436,5 +443,9 @@ function killVirus(player, virus ) {
 
 function endGame() {
   gameOver = true;
+  this.scene.start('winscene')
+
+  console.log('gameOver is now:')
+  console.log(gameOver)
 }
 export default GameScene;
