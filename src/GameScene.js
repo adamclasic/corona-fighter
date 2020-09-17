@@ -5,7 +5,7 @@ import imgstar from './assets/star.png'
 import imgsmoke from './assets/smoke.png'
 import imgplatform from './assets/platform.png'
 import imgph from './assets/ph.png'
-import imgwapon from './assets/gun.png'
+import imgdoor from './assets/door.png'
 import Phaser, {Scene} from 'phaser'
 let player;
 let stars;
@@ -18,7 +18,17 @@ let spray;
 let sprays;
 let playerAngleRight;
 let city;
+let door;
+let gameOver;
 class GameScene extends Scene {
+
+  constructor() {
+    super('game')
+    this.score = 0;
+    this.gameOver = false;
+  }
+
+
   preload() {
     this.load.image('sky', imgcity);
     this.load.image('ground', imgplatform);
@@ -27,11 +37,13 @@ class GameScene extends Scene {
     this.load.image('virus', imgvirus);
     this.load.spritesheet('dude', imgdude, { frameWidth: 114, frameHeight: 115 });
     this.load.spritesheet('smoke', imgsmoke,  { frameWidth: 356, frameHeight: 154 });
+    this.load.image('door', imgdoor);
   }
 
 
   create() {
     city = this.add.image(0, 0, 'sky').setOrigin(0);;
+    door = this.add.image(1000,200, 'door').setScale(0.3, 0.3);
     scoreText = this.add.text(20, 20, 'Score: 0')
     platforms = this.physics.add.staticGroup();
     createPlatform();
@@ -39,7 +51,6 @@ class GameScene extends Scene {
     player = this.physics.add.sprite(100, 4800, 'dude');
     player.setBounce(0.2);
     // player.setCollideWorldBounds(true);
-
     city.setScrollFactor(0);
     scoreText.setScrollFactor(0);
     this.anims.create({
@@ -96,6 +107,7 @@ class GameScene extends Scene {
   this.physics.add.collider(viruses, platforms);
 
   this.physics.add.overlap(player, stars, collectStar, null, this);
+  this.physics.add.overlap(player, door, endGame, null, this);
   // this.physics.add.collider(player, viruses, hitVirus, null, this);
 
 
@@ -134,7 +146,7 @@ class GameScene extends Scene {
       platforms.create(800, 0, 'ground');
       platforms.create(1500, 0, 'ground');
       platforms.create(50, 0, 'ground');
-      platforms.create(100, 100, 'ground');
+      // platforms.create(1000, 100, 'ground');
       platforms.create(100, 100, 'ground').setScale(.5).refreshBody();
       platforms.create(900, 300, 'ground');
       platforms.create(300, 300, 'ground').setScale(.5).refreshBody();
@@ -348,7 +360,7 @@ function collectStar (player, star)
     virus.setVelocity(Phaser.Math.Between(-200, 200), 20);
     virus.allowGravity = false;
 
-    if ((score %3 ===0 && score<90))
+    if ((score %4 ===0 && score<90))
     {
       console.log('stars generated');
         stars = this.physics.add.group({
@@ -394,7 +406,7 @@ function hitVirus (player, virus)
 
     player.anims.play('turn');
 
-    // gameOver = true;
+    gameOver = true;
 }
 
 function killVirus(player, virus ) {
@@ -420,5 +432,9 @@ function killVirus(player, virus ) {
         virus.allowGravity = false;
 
     }
+}
+
+function endGame() {
+  gameOver = true;
 }
 export default GameScene;

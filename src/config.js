@@ -1,5 +1,6 @@
 import Phaser from "phaser";
 import GameScene from "./GameScene";
+import PreloadScene from "./PreloadScene";
 const config = {
   type: Phaser.AUTO,
   parent: "phaser-example",
@@ -12,6 +13,6 @@ const config = {
   },
   width: 1300,
   height: 730,
-  scene: GameScene
+  scene: [PreloadScene, GameScene]
 };
 export default config
