@@ -14,7 +14,9 @@ class PreloadScene extends Scene {
   }
 
   create() {
-    this.add.image(400, 400, 'logo');
+    this.cameras.main.backgroundColor = Phaser.Display.Color.HexStringToColor("#1d0038");
+    this.add.text(300, 350, 'PLAY NOW')
+    this.add.image(900, 400, 'logo');
     this.input.on('pointerdown', () => this.scene.start('game'))
   }
 }
