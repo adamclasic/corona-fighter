@@ -41,6 +41,7 @@ class GameScene extends Scene {
     // player.setCollideWorldBounds(true);
 
     city.setScrollFactor(0);
+    scoreText.setScrollFactor(0);
     this.anims.create({
       key: 'left',
       frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 8 }),
@@ -339,7 +340,7 @@ function collectStar (player, star)
     scoreText.setText('Score: ' + score);
 
     let x = (player.x < 750) ? Phaser.Math.Between(750, 1400) : Phaser.Math.Between(100, 750);
-    if (score%2===0){
+    if (score%3===0){
     let virus = viruses.create(x, player.y-600, 'virus');
     virus.scale = (Phaser.Math.Between(3, 10) / 10)
     virus.setBounce(1);
@@ -347,15 +348,28 @@ function collectStar (player, star)
     virus.setVelocity(Phaser.Math.Between(-200, 200), 20);
     virus.allowGravity = false;
 
-    if ((score %10 ===0 && score<50) || (score %50 ===0 && score<100))
+    if ((score %3 ===0 && score<90))
     {
+      console.log('stars generated');
         stars = this.physics.add.group({
           key: 'star',
-          repeat: 20,
+          repeat: 15,
           setXY: { x: 82, y: player.y - 900, stepX: 70}
         });
         this.physics.add.collider(stars, platforms);
         this.physics.add.overlap(player, stars, collectStar, null, this);
+}
+
+if ((score %30 ===0 && score>99))
+{
+      console.log('stars generated');
+      stars = this.physics.add.group({
+      key: 'star',
+      repeat: 20,
+      setXY: { x: 82, y: player.y - 900, stepX: 70}
+    });
+    this.physics.add.collider(stars, platforms);
+    this.physics.add.overlap(player, stars, collectStar, null, this);
 }
     }
 
