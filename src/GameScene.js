@@ -414,6 +414,8 @@ function hitVirus (player, virus)
     player.anims.play('turn');
 
     gameOver = true;
+    this.scene.start('loosscene')
+
 }
 
 function killVirus(player, virus ) {
@@ -443,7 +445,7 @@ function killVirus(player, virus ) {
 
 function endGame() {
   gameOver = true;
-  this.scene.start('winscene')
+  this.scene.start('loosscene')
 
   console.log('gameOver is now:')
   console.log(gameOver)
