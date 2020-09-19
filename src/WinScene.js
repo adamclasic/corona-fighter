@@ -35,29 +35,10 @@ class WinScene extends Scene {
 
   async create() {
 
-// var input = this.add.rexBBCodeText(900, 300, 'Name', {
-//             color: 'yellow',
-//             fontSize: '24px',
-//             fixedWidth: 200,
-//             // fixedHeight: 80,
-//             backgroundColor: '#333333',
-//             // valign: 'center'
-//         })
-//             .setOrigin(0.5)
-//             .setInteractive()
-//             .on('pointerdown', function () {
-//                 this.plugins.get('rextexteditplugin').edit(input);
-//             }, this);
-//         this.add.text(750, 200, 'Click text to enter your name.')
-//             console.log(input)
-    // console.log(RexUIPlugin)
     this.cameras.main.backgroundColor = Phaser.Display.Color.HexStringToColor("#1d0038");
     this.add.image(900, 200, 'logodead');
     this.add.text(750, 300, 'Your Score is : ' + score);
     this.add.text(750, 332, 'Enter your name below to submit.');
-    // this.add.image(300, 350, 'playbtn');
-    // this.input.on('pointerdown', () => this.scene.start('game'))
-
 
     let playButton = this.add.dom(250, 600, 'button', "width: 300px; background-color: rgb(101, 166, 218); padding: 8px 16px; border-radius: 32px; border: 0; color: #1d0038; font-size: 32px;", 'PLAY AGAIN');
     playButton.addListener('click');
@@ -109,18 +90,10 @@ class WinScene extends Scene {
       return a.score - b.score;
     });
 
-    // console.log(scores.result);
     scores.forEach(ele => {
       onePlayer = onePlayer + `<p>${ele.user}: ${ele.score}</p>`;
     });
     scoresList.node.innerHTML = onePlayer;
-    // submitButton.on('click', () => {
-    //   if (input.node.value) {
-    //     this.model = this.sys.game.globals.model;
-    //     this.model.userName = input.node.value;
-    //     this.scene.start('Game');
-    //   }
-    // });
   }
 }
 
