@@ -43,7 +43,7 @@ const API = (() => {
     }
   }
 
-  return { getScores, postScores, getKey };
+  return { getScores, postScores };
 })();
 
 export default API;
