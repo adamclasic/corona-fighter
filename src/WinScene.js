@@ -3,7 +3,7 @@ import regeneratorRuntime from "regenerator-runtime";
 import "regenerator-runtime/runtime.js";
 import API from './api';
 // import PhaserInput from './node_modules/@azerion/phaser-input/build/phaser-input.js'
-import imglogo from './assets/logo.png'
+import imglogo from './assets/dead virus.png'
 import imgbtn from './assets/btn.png'
 import imgsub from './assets/submitbtn.png'
 import RexUIPlugin from 'phaser3-rex-plugins/templates/ui/ui-plugin'
@@ -52,7 +52,9 @@ class WinScene extends Scene {
 //             console.log(input)
     // console.log(RexUIPlugin)
     this.cameras.main.backgroundColor = Phaser.Display.Color.HexStringToColor("#1d0038");
-
+    this.add.image(900, 200, 'logo');
+    this.add.text(750, 300, 'Your Score is : ' + score);
+    this.add.text(750, 332, 'Enter your name below to submit.');
     // this.add.image(300, 350, 'playbtn');
     // this.input.on('pointerdown', () => this.scene.start('game'))
 
@@ -86,8 +88,7 @@ class WinScene extends Scene {
 
         console.log(input.node.value)
         API.postScores(input.node.value, score.toString(10));
-        // console.log(scores.result);
-        
+
         let onePlayer = '<p>LeaderBoard:</p>';
         let scores = await API.getScores();
         // console.log(scores.result);
