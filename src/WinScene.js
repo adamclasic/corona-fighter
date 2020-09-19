@@ -2,11 +2,10 @@ import {Scene} from 'phaser'
 import regeneratorRuntime from "regenerator-runtime";
 import "regenerator-runtime/runtime.js";
 import API from './api';
-// import PhaserInput from './node_modules/@azerion/phaser-input/build/phaser-input.js'
 import imglogodead from './assets/dead virus.png'
 import imgbtn from './assets/btn.png'
 import imgsub from './assets/submitbtn.png'
-import RexUIPlugin from 'phaser3-rex-plugins/templates/ui/ui-plugin'
+// import RexUIPlugin from 'phaser3-rex-plugins/templates/ui/ui-plugin'
 import {score} from './GameScene'
 
 class WinScene extends Scene {
@@ -15,7 +14,6 @@ class WinScene extends Scene {
   constructor() {
     super('winscene')
   }
-
 
   preload() {
 
@@ -60,19 +58,17 @@ class WinScene extends Scene {
     input.scaleX = 0.4;
     input.scaleY = 0.6;
 
-    console.log(input);
     let submitButton = this.add.dom(900, 600, 'button', "width: 300px; background-color: rgb(101, 166, 218); padding: 8px 16px; border-radius: 32px; border: 0; color: #1d0038; font-size: 32px;", 'SUBMIT');
     submitButton.addListener('click');
+
     submitButton.on('click', async () => {
         if (input.node.value) {
-        // this.scene.start('game');
-
         console.log(input.node.value)
         await API.postScores(input.node.value, score.toString(10));
         input.node.value = '';
         let onePlayer = '<p>LeaderBoard:</p>';
         let apiData = await API.getScores();
-        let scores = apiData.result
+        let scores = apiData.result;
         scores.sort(function(b, a) {
           return a.score - b.score;
         });
@@ -81,19 +77,18 @@ class WinScene extends Scene {
         });
         scoresList.node.innerHTML = onePlayer;
     }});
-    let onePlayer = '<p>LeaderBoard:</p>';
 
+    let onePlayer = '<p>LeaderBoard:</p>';
     let apiData = await API.getScores();
     let scores = apiData.result
-
     scores.sort(function(b, a) {
       return a.score - b.score;
     });
-
     scores.forEach(ele => {
       onePlayer = onePlayer + `<p>${ele.user}: ${ele.score}</p>`;
     });
     scoresList.node.innerHTML = onePlayer;
+
   }
 }
 

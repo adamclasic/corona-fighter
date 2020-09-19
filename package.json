@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "build": "webpack --config webpack/prod.js ",
-    "start": "webpack-dev-server --config webpack/base.js --open"
+    "start": "webpack-dev-server --config webpack/base.js --open",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,8 @@
   },
   "homepage": "https://github.com/photonstorm/phaser3-project-template#readme",
   "devDependencies": {
+    "babel-jest": "^26.3.0",
+    "jest": "^26.4.2",
     "@azerion/phaser-input": "^2.0.5",
     "@babel/core": "^7.7.2",
     "@babel/preset-env": "^7.7.1",
