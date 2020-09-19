@@ -7,6 +7,7 @@ import imglogo from './assets/logo.png'
 import imgbtn from './assets/btn.png'
 import imgsub from './assets/submitbtn.png'
 import RexUIPlugin from 'phaser3-rex-plugins/templates/ui/ui-plugin'
+import {score} from './GameScene'
 
 class WinScene extends Scene {
 
@@ -63,6 +64,7 @@ class WinScene extends Scene {
         this.scene.start('game');
     });
 
+    let scoresList = this.add.dom (250, 250, 'div', "background-color: red;width: 300px; height: 400px; border-radius: 32px; font-size: 22px; color: white; padding: 16px")
 
     const input = this.add.dom(900, 410, 'input', {
       type: 'text',
@@ -79,13 +81,23 @@ class WinScene extends Scene {
     submitButton.on('click', () => {
         console.log('clicked');
         if (input.node.value) {
-        // this.model = this.sys.game.globals.model;
-        // this.model.userName = input.node.value;
-        console.log('clicked');
+        console.log('entered');
         console.log(input.node.value);
         // this.scene.start('game');
-    }});
 
+        console.log(input.node.value)
+        API.postScores(input.node.value, score.toString(10));
+    }});
+    let onePlayer = '';
+
+    let scores = await API.getScores();
+    console.log(scores.result);
+    scores.result.forEach(ele => {
+      onePlayer = onePlayer + `<p>${ele.user} ${ele.score}</p>`;
+      console.log(onePlayer);
+      // console.log(scoresList);
+    });
+    scoresList.node.innerHTML = onePlayer;
     // submitButton.on('click', () => {
     //   if (input.node.value) {
     //     this.model = this.sys.game.globals.model;

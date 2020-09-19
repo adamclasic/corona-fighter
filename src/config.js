@@ -1,6 +1,6 @@
 import Phaser from "phaser";
 import RexUIPlugin from 'phaser3-rex-plugins/templates/ui/ui-plugin'
-import GameScene from "./GameScene";
+import {GameScene} from "./GameScene";
 import PreloadScene from "./PreloadScene";
 import WinScene from "./WinScene";
 import LoosScene from "./LoosScene";

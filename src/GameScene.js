@@ -450,4 +450,4 @@ function endGame() {
   console.log('gameOver is now:')
   console.log(gameOver)
 }
-export default GameScene;
+export {score, GameScene};
