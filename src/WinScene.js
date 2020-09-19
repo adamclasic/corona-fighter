@@ -64,13 +64,15 @@ class WinScene extends Scene {
         this.scene.start('game');
     });
 
-    let scoresList = this.add.dom (250, 250, 'div', "background-color: red;width: 300px; height: 400px; border-radius: 32px; font-size: 22px; color: white; padding: 16px")
+    let scoresList = this.add.dom (250, 250, 'div', "overflow-y: scroll; overflow-x: hidden; background-color: #2d0548;width: 300px; height: 400px; border-radius: 32px; font-size: 22px; color: white; padding: 16px")
 
     const input = this.add.dom(900, 410, 'input', {
       type: 'text',
       name: 'nameField',
       fontSize: '32px',
       backgroundColor: '#fff',
+      padding: '16px 32px',
+      borderRadius: '32px',
     });
     input.scaleX = 0.4;
     input.scaleY = 0.6;
@@ -78,24 +80,28 @@ class WinScene extends Scene {
     console.log(input);
     let submitButton = this.add.dom(900, 600, 'button', "width: 300px; background-color: rgb(101, 166, 218); padding: 8px 16px; border-radius: 32px; border: 0; color: #1d0038; font-size: 32px;", 'SUBMIT');
     submitButton.addListener('click');
-    submitButton.on('click', () => {
-        console.log('clicked');
+    submitButton.on('click', async () => {
         if (input.node.value) {
-        console.log('entered');
-        console.log(input.node.value);
         // this.scene.start('game');
 
         console.log(input.node.value)
         API.postScores(input.node.value, score.toString(10));
+        // console.log(scores.result);
+        
+        let onePlayer = '<p>LeaderBoard:</p>';
+        let scores = await API.getScores();
+        // console.log(scores.result);
+        scores.result.forEach(ele => {
+          onePlayer = onePlayer + `<p>${ele.user}: ${ele.score}</p>`;
+        });
+        scoresList.node.innerHTML = onePlayer;
     }});
-    let onePlayer = '';
+    let onePlayer = '<p>LeaderBoard:</p>';
 
     let scores = await API.getScores();
-    console.log(scores.result);
+    // console.log(scores.result);
     scores.result.forEach(ele => {
-      onePlayer = onePlayer + `<p>${ele.user} ${ele.score}</p>`;
-      console.log(onePlayer);
-      // console.log(scoresList);
+      onePlayer = onePlayer + `<p>${ele.user}: ${ele.score}</p>`;
     });
     scoresList.node.innerHTML = onePlayer;
     // submitButton.on('click', () => {
