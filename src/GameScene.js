@@ -19,13 +19,13 @@ let sprays;
 let playerAngleRight;
 let city;
 let door;
-let gameOver;
+// let gameOver;
 class GameScene extends Scene {
 
   constructor() {
     super('game')
     this.score = 0;
-    this.gameOver = false;
+    // this.gameOver = false;
   }
 
 
@@ -398,10 +398,10 @@ if ((score %30 ===0 && score>99))
 
     }
 
-    if (gameOver) {
-      console.log(this);
-      this.scene.start('winscene')
-    }
+    // if (gameOver) {
+    //   console.log(this);
+    //   this.scene.start('winscene')
+    // }
 }
 
 function hitVirus (player, virus)
@@ -413,7 +413,7 @@ function hitVirus (player, virus)
 
     player.anims.play('turn');
 
-    gameOver = true;
+    // gameOver = true;
     this.scene.start('loosscene')
 
 }
@@ -444,10 +444,10 @@ function killVirus(player, virus ) {
 }
 
 function endGame() {
-  gameOver = true;
-  this.scene.start('loosscene')
+  // gameOver = true;
+  this.scene.start('winscene')
 
-  console.log('gameOver is now:')
-  console.log(gameOver)
+  console.log('gameOver in win scene')
+  // console.log(gameOver)
 }
 export {score, GameScene};

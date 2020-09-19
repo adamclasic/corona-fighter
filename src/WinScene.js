@@ -3,7 +3,7 @@ import regeneratorRuntime from "regenerator-runtime";
 import "regenerator-runtime/runtime.js";
 import API from './api';
 // import PhaserInput from './node_modules/@azerion/phaser-input/build/phaser-input.js'
-import imglogo from './assets/dead virus.png'
+import imglogodead from './assets/dead virus.png'
 import imgbtn from './assets/btn.png'
 import imgsub from './assets/submitbtn.png'
 import RexUIPlugin from 'phaser3-rex-plugins/templates/ui/ui-plugin'
@@ -28,7 +28,7 @@ class WinScene extends Scene {
 
 
 
-    this.load.image('logo', imglogo)
+    this.load.image('logodead', imglogodead)
     this.load.image('submit', imgsub)
     this.load.image('playbtn', imgbtn)
   }
@@ -52,7 +52,7 @@ class WinScene extends Scene {
 //             console.log(input)
     // console.log(RexUIPlugin)
     this.cameras.main.backgroundColor = Phaser.Display.Color.HexStringToColor("#1d0038");
-    this.add.image(900, 200, 'logo');
+    this.add.image(900, 200, 'logodead');
     this.add.text(750, 300, 'Your Score is : ' + score);
     this.add.text(750, 332, 'Enter your name below to submit.');
     // this.add.image(300, 350, 'playbtn');
@@ -87,21 +87,30 @@ class WinScene extends Scene {
         // this.scene.start('game');
 
         console.log(input.node.value)
-        API.postScores(input.node.value, score.toString(10));
-
+        await API.postScores(input.node.value, score.toString(10));
+        input.node.value = '';
         let onePlayer = '<p>LeaderBoard:</p>';
-        let scores = await API.getScores();
-        // console.log(scores.result);
-        scores.result.forEach(ele => {
+        let apiData = await API.getScores();
+        let scores = apiData.result
+        scores.sort(function(b, a) {
+          return a.score - b.score;
+        });
+        scores.forEach(ele => {
           onePlayer = onePlayer + `<p>${ele.user}: ${ele.score}</p>`;
         });
         scoresList.node.innerHTML = onePlayer;
     }});
     let onePlayer = '<p>LeaderBoard:</p>';
 
-    let scores = await API.getScores();
+    let apiData = await API.getScores();
+    let scores = apiData.result
+
+    scores.sort(function(b, a) {
+      return a.score - b.score;
+    });
+
     // console.log(scores.result);
-    scores.result.forEach(ele => {
+    scores.forEach(ele => {
       onePlayer = onePlayer + `<p>${ele.user}: ${ele.score}</p>`;
     });
     scoresList.node.innerHTML = onePlayer;
