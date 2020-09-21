@@ -1,6 +1,5 @@
-  
-import API from '../src/api';
-
+const regeneratorRuntime = require('regenerator-runtime');
+const API = require('./API');
 it('Get the scores from the API', () => {
   API.getScores()
     .then((response) => {
