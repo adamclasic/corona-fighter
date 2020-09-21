@@ -46,4 +46,4 @@ const API = (() => {
   return { getScores, postScores };
 })();
 
-export default API;
+module.exports = API;

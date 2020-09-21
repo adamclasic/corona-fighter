@@ -1,25 +1,27 @@
-import Phaser from "phaser";
-import RexUIPlugin from 'phaser3-rex-plugins/templates/ui/ui-plugin'
-import {GameScene} from "./GameScene";
-import PreloadScene from "./PreloadScene";
-import WinScene from "./WinScene";
-import LoosScene from "./LoosScene";
+/* eslint-disable import/no-extraneous-dependencies, import/named */
+import Phaser from 'phaser';
+import RexUIPlugin from 'phaser3-rex-plugins/templates/ui/ui-plugin';
+import { GameScene } from './GameScene';
+import PreloadScene from './PreloadScene';
+import WinScene from './WinScene';
+import LoosScene from './LoosScene';
+
 const config = {
   type: Phaser.AUTO,
-  parent: "divId",
+  parent: 'divId',
   dom: {
-    createContainer: true
+    createContainer: true,
   },
   physics: {
     default: 'arcade',
     arcade: {
-        gravity: { y: 700 },
-        debug: false
-    }
+      gravity: { y: 700 },
+      debug: false,
+    },
   },
   width: 1300,
   height: 730,
-  // scene: [PreloadScene, GameScene, WinScene, LoosScene]
-  scene: [WinScene]
+  scene: [PreloadScene, GameScene, WinScene, LoosScene],
+  // scene: [LoosScene]
 };
-export default config
+export default config;
