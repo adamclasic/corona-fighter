@@ -44,7 +44,7 @@ class GameScene extends Scene {
   create() {
     city = this.add.image(0, 0, 'sky').setOrigin(0);;
     // door = this.add.image(1000,200, 'door').setScale(0.3, 0.3);
-    door = this.physics.add.sprite(1000,4750, 'door').setScale(0.3, 0.3);
+    door = this.physics.add.sprite(1000,150, 'door').setScale(0.3, 0.3);
     scoreText = this.add.text(20, 20, 'Score: 0')
     platforms = this.physics.add.staticGroup();
     createPlatform();

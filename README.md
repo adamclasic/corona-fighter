@@ -22,7 +22,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/rammazzoti2000/js_capstone_rpg">
+  <a href="https://github.com/adamclasic/corona-fighter">
     <img src="assets/readme/microverse.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -31,12 +31,12 @@
   <p align="center">
     This project is the Capstone of the Microverse curriculum at the end of the JavaScript module!
     <br />
-    <a href="https://github.com/rammazzoti2000/js_capstone_rpg"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/adamclasic/corona-fighter"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/rammazzoti2000/js_capstone_rpg/issues">Report Bug</a>
+    <a href="https://github.com/adamclasic/corona-fighter/issues">Report Bug</a>
     ·
-    <a href="https://github.com/rammazzoti2000/js_capstone_rpg/issues">Request Feature</a>
+    <a href="https://github.com/adamclasic/corona-fighter/issues">Request Feature</a>
   </p>
 </p>
 
@@ -87,7 +87,7 @@ This project was built using these technologies.
 ## Walkthrough Video and Deployment (GitHub-Pages)
 https://www.loom.com/share/34f0969ac0524696937bb2b2ccc21eba
 ##
-* Live Demo Link --> App Deployed with GitHub-Pages: [Final Warrior](https://rammazzoti2000.github.io/js_capstone_rpg/) :point_left:
+* Live Demo Link --> App Deployed with GitHub-Pages: [Final Warrior](https://raw.githack.com/adamclasic/corona-fighter/testing/dist/index.html/) :point_left:
 
 ## Screenshots
 ![screenshot-1](assets/readme/menu.png)
@@ -104,14 +104,14 @@ To get a local copy up and running follow these simple example steps.
  * A modern browser
 
 ### Clone
-* [download](https://github.com/rammazzoti2000/js_capstone_rpg/archive/development.zip) or clone this repo:
+* [download](https://github.com/adamclasic/corona-fighter/archive/development.zip) or clone this repo:
   - Clone with SSH:
   ```
-    git@github.com:rammazzoti2000/js_capstone_rpg.git
+    git@github.com:adamclasic/corona-fighter.git
   ```
   - Clone with HTTPS
   ```
-    https://github.com/rammazzoti2000/js_capstone_rpg.git
+    https://github.com/adamclasic/corona-fighter.git
 
 ### Setup
 
@@ -140,16 +140,16 @@ Start the local webserver:
 
 👤 **Alexandru Bangau**
 
-- LinkedIn: [Alexandru Bangau](https://www.linkedin.com/in/alexandru-bangau/)
-- GitHub: [@rammazzoti2000](https://github.com/rammazzoti2000)
-- E-mail: bangau.alexandru@gmail.com
-- Project [Link](https://github.com/rammazzoti2000/js_capstone_rpg/)
+- Github: [@adamclasic](https://github.com/adamclasic)
+- Twitter: [@adamallalou](https://twitter.com/adamallalou)
+- Linkedin: [Adam Abderrahmane Allalou](https://linkedin.com/adam-allalou)
+- Project [Link](https://github.com/adamclasic/corona-fighter/)
 
 ## :handshake: Contributing
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/rammazzoti2000/js_capstone_rpg/issues).
+Feel free to check the [issues page](https://github.com/adamclasic/corona-fighter/issues).
 
 ## Show your support
 
@@ -167,14 +167,14 @@ Give a :star: if you like this project!
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/rammazzoti2000/js_capstone_rpg.svg?style=flat-square
-[contributors-url]: https://github.com/rammazzoti2000/js_capstone_rpg/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/rammazzoti2000/js_capstone_rpg.svg?style=flat-square
-[forks-url]: https://github.com/rammazzoti2000/js_capstone_rpg/network/members
-[stars-shield]: https://img.shields.io/github/stars/rammazzoti2000/js_capstone_rpg.svg?style=flat-square
-[stars-url]: https://github.com/rammazzoti2000/js_capstone_rpg/stargazers
-[issues-shield]: https://img.shields.io/github/issues/rammazzoti2000/js_capstone_rpg.svg?style=flat-square
-[issues-url]: https://github.com/rammazzoti2000/js_capstone_rpg/issues
+[contributors-shield]: https://img.shields.io/github/contributors/adamclasic/corona-fighter.svg?style=flat-square
+[contributors-url]: https://github.com/adamclasic/corona-fighter/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/adamclasic/corona-fighter.svg?style=flat-square
+[forks-url]: https://github.com/adamclasic/corona-fighter/network/members
+[stars-shield]: https://img.shields.io/github/stars/adamclasic/corona-fighter.svg?style=flat-square
+[stars-url]: https://github.com/adamclasic/corona-fighter/stargazers
+[issues-shield]: https://img.shields.io/github/issues/adamclasic/corona-fighter.svg?style=flat-square
+[issues-url]: https://github.com/adamclasic/corona-fighter/issues
 
 ## 📝 License
 
