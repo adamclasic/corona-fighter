@@ -23,7 +23,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/adamclasic/corona-fighter">
-    <img src="./images/logo.png" alt="Logo" width="100" height="100">
+    <img src="./images/logo.png" alt="Logo" width="100" height="200">
   </a>
 
   <h3 align="center">JavaScript / Capstone --> [Final Warrior]</h3>
@@ -137,7 +137,7 @@ Start the local webserver:
 <!-- CONTACT -->
 ## Contributors
 
-👤 **Alexandru Bangau**
+👤 **Adam Abderrahmane Allalou**
 
 - Github: [@adamclasic](https://github.com/adamclasic)
 - Twitter: [@adamallalou](https://twitter.com/adamallalou)

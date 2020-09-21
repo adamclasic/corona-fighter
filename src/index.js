@@ -1,6 +1,6 @@
-import Phaser, { Game } from "phaser";
+import Phaser, { Game } from 'phaser';
 
-import config from "./config";
+import config from './config';
 
 
 const game = new Game(config);
