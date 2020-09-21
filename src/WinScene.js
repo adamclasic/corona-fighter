@@ -58,7 +58,7 @@ class WinScene extends Scene {
     input.scaleX = 0.4;
     input.scaleY = 0.6;
 
-    let submitButton = this.add.dom(900, 600, 'button', "width: 300px; background-color: rgb(101, 166, 218); padding: 8px 16px; border-radius: 32px; border: 0; color: #1d0038; font-size: 32px;", 'SUBMIT');
+    let submitButton = this.add.dom(900, 600, 'button', "width: 300px; background-color: rgb(101, 166, 218); padding: 8px 16px; border-radius: 32px; border: 0; color: #1d0038; font-size: 32px;", 'REPLAY');
     submitButton.addListener('click');
 
     submitButton.on('click', async () => {
