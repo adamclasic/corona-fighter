@@ -23,7 +23,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/adamclasic/corona-fighter">
-    <img src="assets/readme/microverse.png" alt="Logo" width="80" height="80">
+    <img src="./images/logo.png" alt="Logo" width="100" height="100">
   </a>
 
   <h3 align="center">JavaScript / Capstone --> [Final Warrior]</h3>
@@ -60,7 +60,7 @@ In this particular game the action is mainly focused on collecting as many chest
 
 ### How to Play
 
-![screenshot](assets/readme/commands.png)
+![screenshot](./images//commands.png)
 
 The game can be played using the arrow keys for moving the player and the spacebar for attacking the monster.
 By moving the player you will be able to collect chests that contain gold. Each chest will update the score with a random amount between 20 and 30 golds.
@@ -90,9 +90,8 @@ https://www.loom.com/share/34f0969ac0524696937bb2b2ccc21eba
 * Live Demo Link --> App Deployed with GitHub-Pages: [Final Warrior](https://raw.githack.com/adamclasic/corona-fighter/testing/dist/index.html/) :point_left:
 
 ## Screenshots
-![screenshot-1](assets/readme/menu.png)
-![screenshot-2](assets/readme/guide.png)
-![screenshot-3](assets/readme/game.png)
+![screenshot-2](./images/feature.png)
+![screenshot-1](./images/gameplay.gif)
 
 ### Getting Started
 
