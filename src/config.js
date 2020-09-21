@@ -20,6 +20,6 @@ const config = {
   width: 1300,
   height: 730,
   scene: [PreloadScene, GameScene, WinScene, LoosScene]
-  // scene: [WinScene]
+  // scene: [PreloadScene]
 };
 export default config

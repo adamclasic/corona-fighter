@@ -422,25 +422,6 @@ function killVirus(player, virus ) {
   virus.disableBody(true, true);
   score += 10;
   scoreText.setText('Score: ' + score);
-  
-  if (viruses.countActive(true) === 0)
-    {
-        //  A new batch of viruses to collect
-        viruses.children.iterate(function (child) {
-
-            child.enableBody(true, child.x, 0, true, true);
-
-        });
-
-        let x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
-
-        let virus = viruses.create(x, 16, 'virus');
-        virus.setBounce(0.8);
-        virus.setCollideWorldBounds(true);
-        virus.setVelocity(Phaser.Math.Between(-200, 200), 20);
-        virus.allowGravity = false;
-
-    }
 }
 
 function endGame() {
