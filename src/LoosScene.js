@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+
 import { Scene } from 'phaser';
 import imgloos from './assets/loos.png';
 import imgbtn from './assets/btn.png';

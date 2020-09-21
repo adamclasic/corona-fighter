@@ -1,6 +1,7 @@
+/* eslint-disable no-undef */
+
 import { Scene } from 'phaser';
 import imglogo from './assets/logo.png';
-import imgbtn from './assets/btn.png';
 import imgcmd from './assets/commands.png';
 
 class PreloadScene extends Scene {
@@ -11,7 +12,6 @@ class PreloadScene extends Scene {
 
   preload() {
     this.load.image('logo', imglogo);
-    // this.load.image('playbtn', imgbtn)
     this.load.image('cmdimg', imgcmd);
   }
 
@@ -27,7 +27,6 @@ class PreloadScene extends Scene {
       yoyo: true,
       loop: -1,
     });
-    // this.add.image(300, 600, 'playbtn');
     const startButton = this.add.dom(300, 600, 'button', 'width: 300px; background-color: rgb(101, 166, 218); padding: 8px 16px; border-radius: 32px; border: 0; color: #1d0038; font-size: 32px;', 'PLAY NOW');
     startButton.addListener('click');
     startButton.on('click', () => {

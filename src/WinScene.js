@@ -1,11 +1,11 @@
+/* eslint-disable no-undef, import/named, import/no-extraneous-dependencies */
+
 import { Scene } from 'phaser';
 import regeneratorRuntime from 'regenerator-runtime';
-
 import API from './api';
 import imglogodead from './assets/dead virus.png';
 import imgbtn from './assets/btn.png';
 import imgsub from './assets/submitbtn.png';
-// import RexUIPlugin from 'phaser3-rex-plugins/templates/ui/ui-plugin'
 import { score } from './GameScene';
 
 class WinScene extends Scene {
@@ -36,7 +36,6 @@ class WinScene extends Scene {
     const playButton = this.add.dom(250, 600, 'button', 'width: 300px; background-color: rgb(101, 166, 218); padding: 8px 16px; border-radius: 32px; border: 0; color: #1d0038; font-size: 32px;', 'PLAY AGAIN');
     playButton.addListener('click');
     playButton.on('click', () => {
-      console.log('clicked');
       this.scene.start('game');
     });
 
@@ -53,12 +52,11 @@ class WinScene extends Scene {
     input.scaleX = 0.4;
     input.scaleY = 0.6;
 
-    const submitButton = this.add.dom(900, 600, 'button', 'width: 300px; background-color: rgb(101, 166, 218); padding: 8px 16px; border-radius: 32px; border: 0; color: #1d0038; font-size: 32px;', 'REPLAY');
+    const submitButton = this.add.dom(900, 600, 'button', 'width: 300px; background-color: rgb(101, 166, 218); padding: 8px 16px; border-radius: 32px; border: 0; color: #1d0038; font-size: 32px;', 'SUBMIT SCORE');
     submitButton.addListener('click');
 
     submitButton.on('click', async () => {
       if (input.node.value) {
-        console.log(input.node.value);
         await API.postScores(input.node.value, score.toString(10));
         input.node.value = '';
         let onePlayer = '<p>LeaderBoard:</p>';
