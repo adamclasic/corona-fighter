@@ -87,7 +87,7 @@ This project was built using these technologies.
 ## Walkthrough Video and Deployment (GitHub-Pages)
 https://www.loom.com/share/34f0969ac0524696937bb2b2ccc21eba
 ##
-* Live Demo Link --> App Deployed with GitHub-Pages: [Corona Fighter](https://raw.githack.com/adamclasic/corona-fighter/testing/dist/index.html/) :point_left:
+* Live Demo Link --> App Deployed with GitHub-Pages: [Corona Fighter](https://rawcdn.githack.com/adamclasic/corona-fighter/79d428e1a6c6f38fb50465a9fbb7d237d4fbb86a/dist/index.html/) :point_left:
 
 ## Screenshots
 ![screenshot-2](./images/feature.png)
