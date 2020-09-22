@@ -23,10 +23,10 @@
 <br />
 <p align="center">
   <a href="https://github.com/adamclasic/corona-fighter">
-    <img src="./images/logo.png" alt="Logo" width="100" height="200">
+    <img src="./images/logo.png" alt="Logo" width="200" height="100">
   </a>
 
-  <h3 align="center">JavaScript / Capstone --> [Final Warrior]</h3>
+  <h3 align="center">JavaScript / Capstone --> [Corona Fighter]</h3>
 
   <p align="center">
     This project is the Capstone of the Microverse curriculum at the end of the JavaScript module!
@@ -87,7 +87,7 @@ This project was built using these technologies.
 ## Walkthrough Video and Deployment (GitHub-Pages)
 https://www.loom.com/share/34f0969ac0524696937bb2b2ccc21eba
 ##
-* Live Demo Link --> App Deployed with GitHub-Pages: [Final Warrior](https://raw.githack.com/adamclasic/corona-fighter/testing/dist/index.html/) :point_left:
+* Live Demo Link --> App Deployed with GitHub-Pages: [Corona Fighter](https://raw.githack.com/adamclasic/corona-fighter/testing/dist/index.html/) :point_left:
 
 ## Screenshots
 ![screenshot-2](./images/feature.png)
