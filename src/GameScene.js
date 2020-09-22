@@ -1,4 +1,5 @@
-/* eslint-disable no-unused-expressions, import/no-mutable-exports, no-use-before-define, no-undef */
+/* eslint-disable no-unused-expressions, import/no-mutable-exports,
+ no-use-before-define, no-undef */
 import Phaser, { Scene } from 'phaser';
 import imgcity from './assets/city.png';
 import imgvirus from './assets/virus.png';
@@ -42,7 +43,7 @@ class GameScene extends Scene {
 
   create() {
     city = this.add.image(0, 0, 'sky').setOrigin(0);
-    door = this.physics.add.sprite(1000, 4750, 'door').setScale(0.3, 0.3);
+    door = this.physics.add.sprite(1000, 150, 'door').setScale(0.3, 0.3);
     scoreText = this.add.text(20, 20, 'Score: 0');
     platforms = this.physics.add.staticGroup();
     createPlatform();
@@ -329,6 +330,4 @@ function endGame() {
   this.scene.start('winscene');
 }
 
-export { score, GameScene }; setTint(0xff0000);
-player.anims.play('turn');
-this.scene.start('loosscene');
+export { score, GameScene };

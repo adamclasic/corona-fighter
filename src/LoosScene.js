@@ -24,7 +24,6 @@ class LoosScene extends Scene {
     restartButton.on('click', () => {
       this.scene.start('game');
     });
-    // this.add.image(200, 350, 'playbtn');
     this.input.on('pointerdown', () => this.scene.start('game'));
   }
 }
