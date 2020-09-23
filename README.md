@@ -26,10 +26,10 @@
     <img src="./images/logo.png" alt="Logo" width="200" height="100">
   </a>
 
-  <h3 align="center">JavaScript / Capstone --> [Corona Fighter]</h3>
+  <h3 align="center">JavaScript / Phaser 3 [Corona Fighter]</h3>
 
   <p align="center">
-    This project is the Capstone of the Microverse curriculum at the end of the JavaScript module!
+    This project is built with Phaser 3, a very complex framework to build HTML5 and desktop games using JavaScript!
     <br />
     <a href="https://github.com/adamclasic/corona-fighter"><strong>Explore the docs »</strong></a>
     <br />
@@ -54,18 +54,16 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This is the Capstone project that signs the completion of the JavaScript module in Microverse Curriculum.
-It is an RPG game, specifically a platform game. The main inspiration was from multiplayer online games.
-In this particular game the action is mainly focused on collecting as many chests as possible while having to combat against monsters (also covid monsters are present as well).
+An RPG video game runs on HTML5 canvas built using Javascript and the game engine Phaser 3.
+In this particular game the action is mainly focused on collecting as many stars as possible while having to combat against viruses.
 
 ### How to Play
 
 ![screenshot](./images//commands.png)
 
-The game can be played using the arrow keys for moving the player and the spacebar for attacking the monster.
-By moving the player you will be able to collect chests that contain gold. Each chest will update the score with a random amount between 20 and 30 golds.
-Each character has a health bar, player included. The monster's health bar will decrease each time the player will attack, but watch out, the monsters have a random movement and each time you will attack they will fight back making your health bar decrease.
-As a bonus though, for each monster killed the player will have back some gold and some life to increase his health bar.
+The game can be played using the arrow keys for moving the player and  for attacking the viruses.
+By moving the player you will be able to collect chests that contain stars. Each star will update the score with 1 units.
+As a bonus though, for each virus killed the player will recieve 10 units.
 
 ### Design Process
 
@@ -84,8 +82,6 @@ This project was built using these technologies.
 * Atom :atom:
 
 <!-- Live Demo -->
-## Walkthrough Video and Deployment (GitHub-Pages)
-https://www.loom.com/share/34f0969ac0524696937bb2b2ccc21eba
 ##
 * Live Demo Link --> App Deployed with GitHub-Pages: [Corona Fighter](https://rawcdn.githack.com/adamclasic/corona-fighter/79d428e1a6c6f38fb50465a9fbb7d237d4fbb86a/dist/index.html/) :point_left:
 
@@ -157,11 +153,9 @@ Give a :star: if you like this project!
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
-* [Sound Theme](https://www.youtube.com/watch?v=jhUkGIsKvn0) - Everybody was kung fu fighting by Carl Douglas
 * [SFX effects](https://opengameart.org/) - OpenGameArt website
 * [Phaser3](https://phaser.io/phaser3) & [Phaser Template](https://github.com/rammazzoti2000/phaser_toolbox)
-* [Sprites and Tiles](https://github.com/rammazzoti2000/) - ale[x360]
-* [Microverse](https://www.microverse.org/)
+* [Sprites and Tiles](https://github.com/adamclasic/) - adamclasic
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
