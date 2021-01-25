@@ -83,7 +83,7 @@ This project was built using these technologies.
 
 <!-- Live Demo -->
 ##
-* Live Demo Link --> App Deployed with GitHub-Pages: [Corona Fighter](https://rawcdn.githack.com/adamclasic/corona-fighter/79d428e1a6c6f38fb50465a9fbb7d237d4fbb86a/dist/index.html/) :point_left:
+* Live Demo Link --> App Deployed with GitHub-Pages: [Corona Fighter](https://rawcdn.githack.com/adamclasic/corona-fighter/9312b3ab7a1a45dda5bab5a811b4424ebf7d53c0/dist/index.html) :point_left:
 
 ## Screenshots
 ![screenshot-2](./images/feature.png)
